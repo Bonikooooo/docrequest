@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <% if current_user%>
+    <%= link_to "ICP", pages_users_path, class:"navbar-brand" %>
+    <% end %>
+    <% if current_admin%>
+    <%= link_to "ICP", pages_admin_path, class:"navbar-brand" %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if current_admin%>
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Requests
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Pending", requests_path, class:"dropdown-item"%>
+            <li><%= link_to "Processing", requests_processing_path, class:"dropdown-item"%>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Released</a></li>
+          </ul>
+        <% end %>
+        <% if current_user%>
+        <li class="nav-item">
+          <%= link_to "Request", requests_path, class:"nav-link"%>
+        </li>
+        <% end %>
+        <% if current_user %>
+        <li class="nav-item">
+            <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-link"%>
+        </li>
+        <% end %>
+        <% if current_user %>
+        <li class="nav-item">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete}, class:"nav-link" %>
+        </li>
+        <% end %>
+        <% if current_admin %>
+        <li class="nav-item">
+            <%= link_to "Sign Out", destroy_admin_session_path, method: :delete, data: { turbo_method: :delete}, class:"nav-link" %>
+        </li>
+        <% end %>
+      </ul>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+  <h1>Processing View</h1>
+<p>This is the processing view content.</p>
+
+<!-- You can display information about the request here -->
+<h2>Request Details</h2>
+<p><strong>Request Name:</strong> <%= @request %></p>
+<p><strong>Request Status:</strong> <%= @request.status %></p>

@@ -1,0 +1,14 @@
+
+<div class="p-2 vw-auto vh-100 bg-primary">
+<div class="card text-center mt-4 m-auto" style="width: 50vw">
+<div class="card-body">
+<h1>New request</h1>
+
+<%= render "form", request: @request %>
+
+<br>
+
+<div>
+  <%= link_to "Back to requests", requests_path %>
+</div>
+</div>

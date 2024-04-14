@@ -1,0 +1,25 @@
+<div class="text-center">
+<div class="p-2 vw-auto vh-100 bg-primary">
+
+<% if user_signed_in? %>
+<h3 class="card-title">Page Links </h3>
+<%= link_to "Students Path", pages_users_path, class:"link-body-emphasis link-offset-2  btn   btn-lg" %>
+<% elsif !admin_signed_in? %>
+<div class="card shadow text-center mt-5 m-auto" style="width: 50vw">
+<h3 class="card-title bi bi-backpack fs-1 fw-bold text-primary p-2"> Student</h3>
+<div class="card-body">
+    <%= link_to "Sign Up", new_user_registration_path, class:"link-body-emphasis link-offset-2 btn btn-outline-primary btn-lg" %>
+    <%= link_to "Sign In", new_user_session_path, class:"link-body-emphasis link-offset-2 ms-5 btn btn-outline-primary btn-lg" %>
+</div>
+</div>
+<% end %>
+
+<% if admin_signed_in? %>
+<h3 class="card-title">Page Links </h3>
+<%= link_to "Admin Path", pages_admin_path, class:"link-body-emphasis link-offset-2  btn btn-outline-primary btn-lg" %>
+
+
+</div>
+<% end %></p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<body class="bg-primary"> 
+
+<div class="card m-1 position-absolute top-50 start-50 translate-middle"" style="width: 18rem">
+<div class="card-body">
+<p class="text-center fs-3 text-success"> Payment Successful</p>
+  <%= render @request %>
+   <%= link_to "Edit", edit_request_path(@request), class: "btn btn-primary" %>
+  <%= link_to "Back", requests_path, class: "btn btn-primary" %>
+
+  <%= button_to "Destroy this request", @request, method: :delete, class: "btn btn-danger mt-2" %>
+  </div>
+</div>
+</div>
+</body>
